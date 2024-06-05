@@ -1,0 +1,85 @@
+﻿
+<!--<link href="~/Content/MessageStyleSheet.css" rel="stylesheet" />
+
+<main>
+    <div class="preview" id="user-list">
+
+    </div>
+    <div class="chats">
+        <div class="chat-banner" style="position:sticky">
+
+            <div>
+                <span id="chat-picc" data-user-id="${user.UserID}">
+                    <img id="pic" src="" alt="Chat Picture">
+                </span>
+                <span id="chat-span">
+                    
+                </span>
+            </div>
+            <div><i class='fas fa-info'></i></div>
+        </div>-->
+        @*<div class="sender" onclick="like()">hello! how are you?</div>
+        <div id="heart">❤️</div>
+        <div class="receiver">heyy! much better</div>
+        <div class="sender" onclick="like()">That's great!🥰</div>
+        <div id="heart">❤️</div>
+        <div class="receiver">How did the interview go? was it good?</div>
+        <div class="sender" onclick="like()">Yeah. I think I did good🙈</div>
+        <div id="heart">❤️</div>
+        <div class="receiver">Wow I'm soo happy for you</div>
+        <div class="sender" onclick="like()">Thanks for always supporting me. Means a lot💖</div>
+        <div id="heart">❤️</div>
+        <div class="receiver">You're most welcome</div>
+        <div class="user-input"></div>*@
+        <!--<div class="input-msg">
+            <input type="text" id="send-input" placeholder="Type something" onfocus="this.value=''">
+            <i onclick="send()" class='far fa-paper-plane'>Send</i>
+        </div>
+    </div>
+</main>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/Script/Script.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '/api/DefaultApi/GetAllChatUsers',
+            method: 'GET',
+            success: function (users) {
+                const userList = $('#user-list');
+                users.forEach((user) => {
+                    const userItem = $(`
+                        <div class="user-item" id="chat-pic" data-user-id="${user.UserID}">
+                            <img src="${"/"+user.ProfilePictureURL}" alt="Profile Picture" id="pic">
+                            <span>${user.Username}</span>
+                        </div><br>
+                    `);
+                    userList.append(userItem);
+                });
+            },
+            error: function (error) {
+                console.error('Error fetching users:', error);
+            }
+        });
+
+        
+    });
+    $(document).on('click', '.user-item', function () {
+        const profilePictureURL = $(this).find('img').attr('src');
+        const username = $(this).find('span').text();
+        const userId = $(this).data('user-id');
+
+        // Update the profile picture and username in the chat banner
+        $('#chat-picc img').attr('src', profilePictureURL);
+        $('#chat-span').text(username);
+        $('#chat-pic').data('user-id', userId);
+    });
+
+
+    //send user input
+    function send() {
+        var usermsg = document.getElementById("send-input").value;
+        var senddiv = document.querySelector(".user-input");
+        senddiv.style.display = "block";
+        senddiv.innerHTML = usermsg;
+    }
+</script>-->

@@ -1,0 +1,255 @@
+﻿
+.profile-photo {
+    width: 50px;
+    height: 50px;
+}
+
+.flex-menu {
+    display: flex;
+}
+
+    .flex-menu li:not(:last-child) {
+        margin-right: 40px;
+    }
+
+.S {
+    display: block;
+    max-width: 100%;
+    height: 309px;
+}
+
+.full-bg-img,
+.view .content,
+.view .mask {
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    top: 0;
+}
+
+#closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    #closeButton:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+.ftt {
+    margin-left: 10px;
+    display: flex;
+    justify-content: end;
+    height: 5vh;
+}
+
+
+.fa-heart {
+    cursor: pointer;
+}
+/* Modal container */
+.modal .comment-container .comments {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.comment {
+    margin-top: 10px;
+}
+
+
+/* Modal content */
+.modal-content .comment-container .comments {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Max width */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #4CAF50;
+    animation: progress 5s linear;
+}
+
+@@keyframes progress {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.overlay {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: none;
+    position: fixed;
+    top: 30px; /* Half of the height */
+    left: 547px; /* Half of the width */
+    width: 480px;
+    height: 600px; /* Height of the popup */
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    overflow: hidden; /* To prevent scrolling within the popup */
+    border-radius: 10px; /* Optional: adds rounded corners */
+}
+/* CSS for the popup */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 50%; /* Adjust width as needed */
+    max-width: 800px; /* Maximum width for larger screens */
+    z-index: 9999;
+    height: 80%;
+}
+
+/* CSS for the left and right sections */
+.popup-left, .popup-right {
+    width: 45%;
+    height: 50%; /* Adjust width as needed */
+}
+
+.popup-left {
+    margin-right: 10px;
+}
+
+.popup-body {
+    display: flex; /* Use Flexbox */
+    justify-content: space-around; /* Distribute space between child elements */
+}
+
+/* CSS for the left and right sections */
+.popup-left, .popup-right {
+    flex: 1; /* Equal width for both sections */
+}
+
+
+/* CSS for the selected image */
+#selectedImagePreview img {
+    max-width: 350px; /* Ensures the image fits within the container */
+    max-height: 450px; /* Ensures the image fits within the container */
+    display: block; /* Ensures the image behaves as a block element */
+    margin: auto; /* Centers the image horizontally */
+}
+
+/* CSS for the input image field */
+#postImageInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* CSS for the caption box */
+#captionInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+/* CSS for the share button */
+#shareButton {
+    background-color: #4CAF50;
+    width: 345px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add smooth transition */
+}
+
+    /* Hover effect for the share button */
+    #shareButton:hover {
+        background-color: #45a049;
+    }
+
+.sidebar2 {
+    width: 0;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 245px;
+    height: 100%;
+    overflow-x: hidden;
+    transition: 0.5s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.notification-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Styles for each notification item */
+.notification {
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.sidebar.open {
+    width: 350px; /* Adjust as needed */
+}
+
+.reply {
+    margin-left: 20px; /* Adjust the margin-left to increase or decrease the indentation */
+    /* Additional styles for the reply comments */
+}
+
+

@@ -1,0 +1,120 @@
+﻿/* Reset default browser styles */
+html, body, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.sub-section {
+    cursor: pointer;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 0;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 245px;
+    height: 100%;
+    overflow-x: hidden;
+    transition: 0.5s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.sidebar2{
+    width: 0;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 245px;
+    height: 100%;
+    overflow-x: hidden;
+    transition: 0.5s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    .sidebar.open {
+        width: 350px; /* Adjust as needed */
+    }
+.sidebar2.open {
+    width: 500px; /* Adjust as needed */
+}
+
+.profile-photo {
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.username {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.full-name {
+    color: #777;
+}
+
+
+#searchBarWrapper {
+   
+    padding: 10px;
+}
+
+
+#searchInput {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#sidebarSearchBtn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+    #sidebarSearchBtn:hover {
+        background-color: #45a049;
+    }
+
+/* CSS to style the popup */
+/* CSS for the popup */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 60%; /* Adjust width as needed */
+    max-width: 800px; /* Maximum width for larger screens */
+    z-index: 9999;
+}
+
+/* CSS for overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 9998; /* Ensure overlay is behind the popup */
+}

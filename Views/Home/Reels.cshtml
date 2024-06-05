@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!--<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Reels</title>
+
+</head>
+<body>-->
+
+    @*<div>
+            <div class="embedsocial-hashtag" data-ref="89b465c0def5a6ecc55863fc8837829be8b04d5a"> <a class="feed-powered-by-es feed-powered-by-es-feed-img" href="https://embedsocial.com/" target="_blank" title="Widget by EmbedSocial"> <img src="https://embedsocial.com/cdn/images/embedsocial-icon.png" alt="EmbedSocial"> Widget by EmbedSocial </a> </div>
+            <script>(function (d, s, id) { var js; if (d.getElementById(id)) { return; } js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/ht.js"; d.getElementsByTagName("head")[0].appendChild(js); }(document, "script", "EmbedSocialHashtagScript"));</script>
+        </div>*@
+    <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Script/Script.js"></script>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Reels Feature</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css">
+
+    <link href="~/Content/Reels.css" rel="stylesheet" />
+</head>
+<body>
+
+    @*<div class="sub-section" id="hidden1">
+            <i class="fa-solid fa-square-plus"></i>
+            <a href="#" id="postReelLink">Post Reels</a>
+        </div>*@
+
+    <div id="postReelPopup" class="popup" style="display:block">
+        <div class="popup-content p-3">
+            <span class="close" id="closePopup">X</span>
+            <div class="popup-header">
+                <h1 class="mb-4">Post Reel</h1>
+            </div>
+            <div class="popup-body">
+                <div class="popup-left">
+                    <input type="file" id="reelVideoInput" class="form-control-file mb-3" accept="video/*">
+                    <br><br>
+                    <textarea id="captionInput" class="form-control mb-3" placeholder="Write a caption..." rows="3"></textarea><br>
+                    <button class="btn btn-primary" id="shareButton">Share</button>
+                </div>
+                <div class="vertical-line"></div>
+                <div class="popup-right">
+                    <div id="selectedVideoPreview"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="reelsContainer" style="margin-top:140px">
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js"></script>
+
+    <script src="~/Script/Reels.js"></script>
+
+</body>
+    </html>

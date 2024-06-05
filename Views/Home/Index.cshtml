@@ -1,0 +1,298 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram clone </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link href="~/Content/SideBar.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="~/Content/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css">
+
+</head>
+<body>
+    <div class="container">
+
+        <nav>
+            <div class="navbar" style="position:fixed">
+                <div class="instagram-text-logo">
+                    <img src="https://i.postimg.cc/qMFTcDw1/instagram-text.png" id="WhiteColor" alt="">
+                </div>
+
+                <div class="sub-section" id="clicked">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                    <a href="#">Dark Mode</a>
+                </div>
+
+
+
+                <div class="sub-section" id="searchBtn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <a href="#">Search</a>
+                </div>
+
+                <div class="sub-section">
+                    <i class="fa-regular fa-compass"></i>
+                    <a href="@Url.Action("Explore", "Home")">Explore</a>
+                </div>
+                <div class="sub-section">
+                    <i class="fa-solid fa-clapperboard"></i>
+                    <a href="@Url.Action("Reels", "Home")">Reels</a>
+                </div>
+                @*<div class="sub-section">
+                        <i class="fa-regular fa-message"></i>
+                        <a href="@Url.Action("Message", "Home")">Messages</a>
+                    </div>*@
+
+                <div class="sub-section" id="notification">
+                    <i class="far fa-heart"></i>
+                    <a href="#">Notification</a>
+                </div>
+
+                <div class="sub-section" id="hidden1">
+                    <i class="fa-solid fa-square-plus"></i>
+                    <a href="#">Create Post</a>
+                </div>
+
+                <div class="sub-section" id="hidden1">
+                    <i class="fa-solid fa-circle-plus"></i>
+                    <a href="#" id="createStoryLink">Create Story</a>
+                </div>
+
+                <!-- Popup for uploading story image -->
+                <div id="storyPopup" style="display: none; position: fixed; top: 25%; left: 0; width: 100%; height: 100%; z-index: 9999;">
+                    <div class="popup-content" style="background-color: #fefefe; margin:auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 400px; text-align: center;">
+                        <span class="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+                        <h2>Upload Story Image</h2>
+                        <input type="file" id="storyImageInput" accept="image/*" style="display: block; margin: 20px auto;">
+                        <div id="imagePreview" style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin: 20px auto; display:none">
+                            <img id="previewImage" src="#" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <button id="postStoryBtn" style="display: block; margin: 0 auto; padding:10px;background-color:brown;color:white;">Post Story</button>
+                    </div>
+                </div>
+
+                <div id="replyModal" style="display: none; position: fixed; top: 25%; left: 0; width: 100%; height: 100%; z-index: 9999;">
+                    <div class="popup-content" style="background-color: #fefefe; margin:auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 400px; text-align: center;">
+                        <span class="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+                        <h2>Reply to Comment</h2>
+                        <form id="replyForm">
+                            <div class="form-group">
+                                <textarea id="replyText" rows="4" style="width: 100%; margin-bottom: 15px;" placeholder="Type your reply here..."></textarea>
+                            </div>
+                        </form>
+                        <button data-comment-id="" data-post-id="" id="sendReplyBtn" style="display: block; margin: 0 auto; padding: 10px; background-color: brown; color: white;">Send Reply</button>
+                    </div>
+                </div>
+
+
+
+
+                <!-- HTML for the popup -->
+                <div id="createPostPopup" class="popup" style="display:none">
+                    <div class="popup-content p-3">
+                        <span class="close">X</span>
+                        <div class="popup-header">
+                            <h1 class="mb-4">Create Post</h1>
+                        </div>
+                        <div class="popup-body">
+                            <div class="popup-left">
+                                <input type="file" id="postImageInput" class="form-control-file mb-3">
+
+                                <textarea maxlength="100" id="captionInput" class="form-control mb-3" placeholder="Write a caption..." rows="5"></textarea>
+                                <button class="btn btn-primary" id="shareButton">Share</button>
+
+                            </div>
+                            <div class="vertical-line"></div> <!-- Vertical line divider -->
+                            <div class="popup-right">
+                                <div id="selectedImagePreview"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @*<div id="card">
+                        <div id="close-btn" onclick="closeStory()">×</div>
+                        <div id="full-screen"></div>
+                        <div id="progress-bar"></div>
+                    </div>*@
+
+                <div class="sub-section">
+                    @*<div class="profile-img">
+                            <img src="https://i.postimg.cc/zB3mRnhs/apy-logo.png" alt="">
+                        </div>*@
+                    <i class="fa-solid fa-house-user"></i>
+                    <a href="@Url.Action("Profile", "Home")">Profile</a>
+                </div>
+
+                <div class="sub-section" id="logoutButton">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <a href="#">Logout</a>
+                </div>
+
+                @*<div class="menu-section" id="hidden">
+                        <i class="fa-solid fa-bars"></i>
+                        <a href="#" id="moreLink">More</a>
+                    </div>*@
+
+
+
+                <!-- Popup container -->
+                <!--<div id="popup" style="display: none;">
+                    <button id="logoutButton">Logout</button>
+                </div>-->
+
+
+            </div>
+
+        </nav>
+        <div class="sidebar" id="sidebar">
+
+            <div id="searchBarWrapper">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <ul id="userList"></ul>
+            </div>
+        </div>
+
+        <div class="sidebar2" id="sidebar2">
+            <h2>Notifications</h2>
+            <ul class="notification-list">
+            </ul>
+
+        </div>
+
+        <!-- Modal -->
+        @*<div id="commentModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <textarea id="commentTextarea" placeholder="Enter your comment..." style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"></textarea>
+                    <button id="submitCommentBtn" style="display: block; margin: 0 auto; padding:10px;background-color:brown;color:white;">Submit</button>
+                </div>
+            </div>*@
+
+        @*<div style="display: inline-block;">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+            </div>*@
+        <div class="middle-section">
+
+
+            <div class="post-section">
+                <div style="text-align: center; margin-top: 20px;">
+                    <div style="display: inline-block; background-color: #f0f0f0; border-radius: 20px; padding: 10px 20px;">
+                        <input type="text" id="HashSearchInput" placeholder="#Search..." style="width: 545px; padding: 10px; margin-right: 10px; margin-bottom: 5px; border: none; border-radius: 10px; outline: none;">
+                        <button id="HashSearchBtn" style="padding: 5px 10px; border: none; background-color: brown; color: white; border-radius: 10px; cursor: pointer;">Search</button>
+                    </div>
+                </div>
+                <div class="HashImages" style="display: flex; flex-direction: column; align-items: center;"></div>
+                @*<div class="nav-hidden">
+                        <div class="nav-hidden-logo" id="white-2color">
+                            <img src="https://i.postimg.cc/qMFTcDw1/instagram-text.png" alt="">
+                        </div>
+                        <div class="nav-hide-2">
+                            <i class="fa-regular fa-heart"></i>
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </div>
+                    </div>*@
+                <div class="StorySection" id="StorySection">
+
+                    <div class="overlay" id="overlay">
+
+                        <button id="closeButton">X</button>
+
+
+                        <div class="progress-bar"></div>
+                    </div>
+                    <!--<div class="story">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMGltYWdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60" alt="">
+                    </div>-->
+                    @*<span>Aaradhya_gu.</span>*@
+                    <!--</div>-->
+
+
+
+
+                </div>
+                <div class="post-area" id="AppendPost">
+                    @*<div class="post-main">
+                            <div class="post-header">
+                                <div class="post-left-header">
+                                    <div class="post-image">
+                                        <img src="https://images.unsplash.com/photo-1461800919507-79b16743b257?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1lbnMlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60" alt="">
+                                    </div>
+                                    <p class="post-username">
+                                        Vin Diesel
+                                    </p>
+                                    <i class="fa-solid fa-certificate"></i>
+                                    <span class="one-day"> . 1h </span>
+                                </div>
+                                <i class="fa-solid fa-grip-lines"></i>
+                            </div>
+                            <div class="post-main-image">
+                                <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHRlY2hub2xvZ3l8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60" alt="">
+                            </div>
+                            <div class="post-fotter">
+                                <div class="post-fotter-left">
+                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-message"></i>
+                                    <i class="fa-regular fa-paper-plane"></i>
+                                </div>
+                                <i class="fa-regular fa-bookmark"></i>
+                            </div>
+                            <div class="post-description">
+                                <p class="post-liked">Liked by sarasshree and others</p>
+                                <p class="title"><span>balcoo </span>Monsoon fury rained havoc in various parts of Himachal Pradesh this year with the death toll crossing 260. The rains...<br> more</p>
+                                <p class="comments"> view all comments</p>
+                            </div>
+                        </div>*@
+
+
+                </div>
+            </div>
+            <div>
+                <div class="suggestion-follow">
+                    <p class="suggestion">---------------- Suggested for you ---------------</p>
+
+                </div>
+                <div class="FollowSection" id="FollowSection">
+
+                    @*<div class="profile-follow profile-foolow-hovering">
+                            <div class="profile-follow-left">
+                                <div class="profile-follow-image">
+                                    <img src="https://i.postimg.cc/zB3mRnhs/apy-logo.png" alt="">
+                                </div>
+                                <div class="profile-follow-content">
+                                    <p class="profile-id">Aasu_Yadav_59</p>
+                                    <p class="profile-name">Aaasu Yadav</p>
+                                </div>
+                            </div>
+                            <a href="#" class="follow">switch</a>
+                        </div>*@
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Script/Script.js"></script>
+    <script src="~/Script/IndexE.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js"></script>
+
+
+
+</body>
+</html>

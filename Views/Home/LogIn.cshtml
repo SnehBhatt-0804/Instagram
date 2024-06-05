@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css">
+   
+</head>
+<body>
+    <div class="container">
+        <div class="col image">
+            <a href="#"><img src="https://i.ibb.co/Q8X79RK/image.png" alt="instagram" id="image"></a>
+        </div>
+        <div class="col content">
+            <div class="box">
+                <div class="title">
+                    <a href="#"><img src="https://i.ibb.co/2dCLRGv/logoname.png" alt="logoname" border="0"></a>
+                </div>
+                <form class="login-form" id="loginForm">
+                    <div class="form-content">
+                        <input type="text" name="username" id="loginUsername" required />
+                        <label for="username">Enter Username</label>
+                        <span class="error" id="usernameError"></span> <!-- Display username validation error here -->
+                    </div>
+                    <div class="form-content">
+                        <input type="password" name="password" id="loginPassword" required />
+                        <label for="password">Enter Password</label>
+                        <span class="error" id="passwordError"></span> <!-- Display password validation error here -->
+                    </div>
+                    <div class="form-content">
+                        <button type="submit">Log in</button>
+                    </div>
+                </form>
+            </div>
+            <div class="mini-box">
+                <div class="text">
+                    Don't have an account ? <a href="@Url.Action("SignUp", "Home")">Sign up</a>
+                    <div class="text">Forgot Password ? <a href="@Url.Action("ForgotPassword", "Home")">Forgot Password</a></div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js"></script>
+    <script src="~/Script/LogIn.js"></script>
+    
+   
+
+</body>
+</html>

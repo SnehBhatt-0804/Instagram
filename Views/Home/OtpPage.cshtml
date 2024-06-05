@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OTP Verification Form</title>
+    <link href="~/Content/OTPStyleSheet.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css">
+</head>
+<body>
+    <div class="container">
+        <h4>Enter OTP Sent To Your Email</h4>
+        <form id="otpForm">
+            <div class="input-field">
+                <input type="text" id="otp1" maxlength="1">
+                <input type="text" id="otp2" maxlength="1">
+                <input type="text" id="otp3" maxlength="1">
+                <input type="text" id="otp4" maxlength="1">
+                <br>
+            </div>
+            <button type="submit" id="otpbtn">Verify OTP</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Script/OtpPage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js"></script>
+
+</body>
+</html>
+
